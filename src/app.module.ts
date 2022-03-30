@@ -9,7 +9,7 @@ import * as path from 'path';
   imports: [
     ServeStaticModule.forRoot({rootPath: path.resolve(__dirname, 'static')}),
     TrackModule,
-    MongooseModule.forRoot('mongodb+srv://ilya:matvicevsky@cluster0.ph1f5.mongodb.net/Music_platform?retryWrites=true&w=majority'),
+    MongooseModule.forRoot('mongodb+srv://ilya:matvicevsky@cluster0.ws4kt.mongodb.net/music_albums?retryWrites=true&w=majority'),
     FileModule
   ]
 
