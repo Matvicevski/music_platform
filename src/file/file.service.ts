@@ -10,7 +10,7 @@ export enum FileType {
 
 @Injectable()
 export class FileService {
-  
+
   createFile(type: FileType, file): string {
     try {
       const fileExtension = file.originalname.split('.').pop()
@@ -25,8 +25,13 @@ export class FileService {
       throw new HttpException(e.message, HttpStatus.INTERNAL_SERVER_ERROR)
     }
   }
-  
+
   removeFile(fileName: string){
-    
+    try {
+      const filePath = path.resolve(__dirname, '..', 'static', fileName)
+      fs.unlinkSync(filePath)
+    } catch (e) {
+      throw new HttpException(e.message, HttpStatus.INTERNAL_SERVER_ERROR)
+    }
   }
 }
